@@ -1,0 +1,6 @@
+{
+  "name": "load_more",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./load_more.js"
+}
