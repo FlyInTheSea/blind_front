@@ -32,14 +32,16 @@ class Sub_form extends Component {
                 }
             }>
                 <div className="card-header">
-                    <Filter_button/>
-                    <table>
-                        <tr>
-                            <td>
-                                {option.end && option.end.toString()}
-                            </td>
-                        </tr>
-                    </table>
+                    <button className="btn-outline-success" onClick={
+                        e=>{
+                            console.log("shit")
+                            e.preventDefault()
+                        }
+                    } >
+                        <strong >
+                            excel下载
+                        </strong>
+                    </button>
                 </div>
                 <div className="card-block">
                     <div className="form-group row">
@@ -104,7 +106,7 @@ const get_add = (id, validate, filter = []) => {
                         name_alias: "结束"
                     }
                 ],
-                option:reducer.get_option(state,id)
+                option: reducer.get_option(state, id)
 
             }
         },

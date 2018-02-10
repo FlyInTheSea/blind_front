@@ -7,7 +7,10 @@ const Add = ({Add_form_switch}) => {
                 <div className="col-md-6">
                     <div className="card">
                         <div className="card-header">
-                            <strong>Basic Form</strong> Elements
+                            {/*<strong>Basic Form</strong> Elements*/}
+                            <strong>
+                                添加
+                            </strong>
                         </div>
                         <Add_form_switch/>
                     </div>

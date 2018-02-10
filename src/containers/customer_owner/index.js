@@ -4,6 +4,9 @@ import * as actions from "../../action"
 
 
 import id from "./id"
-const Index = get_index(id)
+
+const Index = get_index(id, [],
+    {"customer_id": 4}
+)
 
 export default Index

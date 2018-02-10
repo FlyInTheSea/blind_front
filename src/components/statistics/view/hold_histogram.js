@@ -17,13 +17,7 @@ const District = ({
                       title
                       , data
                   }) => {
-    console.log(data)
-
     get_last_year_month_array()
-
-    console.log(data)
-
-
     return (
         <ReactEcharts
             option={

@@ -28,6 +28,7 @@ import store, {history} from "./Init_store"
 
 
 import {withRouter} from "react-router"
+import test from "./test"
 
 
 
@@ -58,6 +59,7 @@ render((
                 <MuiThemeProvider>
                     <div>
                         <Switch>
+                            <Route exact path="/test" name="Login Page" component={test}/>
                             <Route exact path="/login" name="Login Page" component={Login}/>
                             <Route exact path="/register" name="Register Page" component={Register}/>
                             <Route exact path="/404" name="Page 404" component={Page404}/>
@@ -87,18 +89,6 @@ render((
                     </div>
                 </MuiThemeProvider>
             </ConnectedRouter>
-            <div
-                style={{
-                    height:"100px"
-                }}
-                onClick={
-                    ()=>{
-                        console.log(store.getState())
-                    }
-                }
-            >
-                出来
-            </div>
         </div>
     </Provider>
 ), document.getElementById('root'))

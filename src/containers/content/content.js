@@ -10,31 +10,28 @@ import Statistics from "../../components/statistics/index"
 import show from "../../containers/commission/show"
 import community_show from "../../containers/community/show"
 
+import Rich_text from "../../components/rich_text/quill"
 
 const Content = () => {
+
     return (
         <div>
-            <Route path="/:table/add" table_structure component={Add}/>
-            <Route path="/:table/items" table_structure component={Items}/>
-            <Route path="/:table/edit/:name" table_structure component={Edit}/>
-            <Route path="/statistics" table_structure component={Statistics}/>
-
+            <Route path="/customer_owner/:name(\d+)" component={Items}/>
+            <Route path="/community/:community(\d+)/contract_template/add" component={Rich_text}/>
+            {/*<Route path="/baidu" table_structure component={A}/>*/}
+            <Route path="/:table/add" component={Add}/>
+            <Route path="/:table/items" component={Items}/>
+            <Route path="/:table/edit/:name" component={Edit}/>
+            <Route path="/statistics" component={Statistics}/>
             <Route path="/house/:house/subscribe" component={Add}/>
             <Route path="/house/:house(\d+)/payment" component={Add}/>
             <Route path="/house/:house(\d+)/payment" component={Items}/>
             <Route path="/contract/:house(\d+)" component={Add}/>
-
-
             <Route path="/overview/community/:community(\d+)" component={community_show}/>
-
             <Route path="/commission/user/:user(\d+)" component={show}/>
             <Route path="/commission/user/:user(\d+)" component={Single_item}/>
-
             <Route path="/fund/house/:house" component={Items}/>
-
-
             <Route path="/house_batch_upload/community/:community(\d+)" component={Add}/>
-
             <Route path="/overview/community/:community(\d+)" component={Statistics}/>
 
         </div>

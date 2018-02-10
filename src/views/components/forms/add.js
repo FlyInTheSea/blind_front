@@ -27,7 +27,6 @@ class Sub_form extends Component {
 
         return (
             <form onSubmit={
-
                 value => {
                     handleSubmit(value)
                 }

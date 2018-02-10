@@ -9,6 +9,7 @@ const renderTextField = ({
                              meta: {touched, error},
 
                              ...custom,
+                             placeholder
                          }) => (
 
     <TextField
@@ -17,6 +18,7 @@ const renderTextField = ({
         errorText={touched && error}
         {...input}
         {...custom}
+        placeholder={placeholder}
     />
 )
 

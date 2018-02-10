@@ -18,14 +18,23 @@ const del_item = (item, id) => {
 }
 
 
-const get_index = (id,addition_operation = []) => {
+const get_index = (id, addition_operation = [], query_params) => {
     return connect(
         (state, own_props) => {
+            let table_structures
+                = reducer.get_skeleton_fields(state, id)
             return {
+                ...own_props,
                 id,
                 items: reducer.get_data_ids_and_by_id(state, id),
                 // get_items(id, state, own_props),
-                table_structures: reducer.get_skeleton_fields(state, id),
+                table_structures: [
+                    {
+                        name: "id",
+                        name_alias: "id"
+                    },
+                    ...table_structures
+                ],
                 is_fetching: false,
                 edit_url(item) {
                     return front_urls.get_edit_url(id, item.id)
@@ -36,8 +45,9 @@ const get_index = (id,addition_operation = []) => {
         dispatch => {
             dispatch({
                 type: actions.INDEX_ASYNC,
+                query_params,
+                page: 0,
                 id,
-                page: 0
             })
 
             dispatch({

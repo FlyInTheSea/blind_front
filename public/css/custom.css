@@ -1,0 +1,73 @@
+.align-items-center {
+  background-image: url("../img/login_background.jpg");
+  background-size: cover;
+}
+.login_head {
+  background-image: url("../img/slogan.png");
+  height: 4em;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.login_form_container {
+  background-color: #ffffff;
+  border: 1em rgba(51, 51, 51, 0.8) solid;
+  border-radius: 10px;
+}
+.search-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search-form .search_items {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.lantern_container {
+  left: 100px;
+  margin-left: 100px;
+  margin-top: 100px;
+  position: relative;
+  top: 100px;
+  perspective: 200px;
+  perspective-origin: 20% 20%;
+}
+.lantern_container .lantern {
+  background-color: #e4e5e6;
+  position: relative;
+}
+.lantern_container .lantern section {
+  display: inline-block;
+  width: 300px;
+  height: 600px;
+  position: absolute;
+  transform: translateZ(150px);
+}
+.lantern_container .lantern :first-child {
+  transform: rotateY(90deg) translateZ(150px);
+  background-color: yellow;
+}
+.lantern_container .lantern :nth-child(2) {
+  transform: rotateY(180deg) translateZ(150px);
+  background-color: #333;
+}
+.lantern_container .lantern :nth-child(3) {
+  transform: rotateY(180deg) translateZ(150px);
+  background-color: #333;
+  background-color: red;
+  opacity: 0.6;
+}
+.lantern_container .lantern :nth-child(4) {
+  transform: rotateY(240deg) translateZ(150px);
+  background-color: blue;
+}
+.lantern_container .lantern :nth-child(5) {
+  transform: rotateY(320deg) translateZ(150px);
+  background-color: orangered;
+}
+.lantern_container .lantern :nth-child(6) {
+  transform: rotateY(360deg) translateZ(150px);
+  transform-origin: 300px;
+  background-color: brown;
+}

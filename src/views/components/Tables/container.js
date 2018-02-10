@@ -24,28 +24,40 @@ const wrap_item = (props, item) => {
 }
 
 export default ({
-                    items, ...rest, extra_map
+                    items, ...rest, extra_map, summaries = []
                 }) => {
     return (
-        <table className="table table-striped">
-            <thead>
-            <Header {...rest}  />
-            </thead>
-            <tbody>
-            {
-                // items.ids
-                items.ids.map(
-                    (key) => {
-                        let item = items.by_id[key]
-                        item = wrap_item(extra_map, item)
-                        return (
-                            <Row item={item} key={item.id} {...rest} />
-                        )
-                    }
-                )
-            }
-            </tbody>
+        <div>
 
-        </table>
+            <h4>
+                {
+                    summaries.map(
+                        ({name, val}) => {
+                            return name + " : " + val + "   "
+                        }
+                    )
+                }
+            </h4>
+            <table className="table table-striped">
+                <thead>
+                <Header {...rest}  />
+                </thead>
+                <tbody>
+                {
+                    // items.ids
+                    items.ids.map(
+                        (key) => {
+                            let item = items.by_id[key]
+                            item = wrap_item(extra_map, item)
+                            return (
+                                <Row item={item} key={item.id} {...rest} />
+                            )
+                        }
+                    )
+                }
+                </tbody>
+
+            </table>
+        </div>
     )
 }

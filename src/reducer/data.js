@@ -3,8 +3,7 @@ import {combineReducers} from "redux"
 
 const get = (state, action) => {
 
-    if (state[action.id]) {
-
+    if (state[action.id] && !action.refresh) {
 
         return [...new Set([
             ...state[action.id],
@@ -21,9 +20,11 @@ const get = (state, action) => {
     }
 }
 
+
 const ids = (state = {}, action) => {
 
     switch (action.type) {
+
         case actions.INDEX:
             return {
                 ...state,
@@ -63,6 +64,25 @@ const by_id = (state = {}, action) => {
     }
 }
 
+
+const last_page = (state = {}, action) => {
+
+    switch (action.type) {
+        case actions.INDEX:
+            let result = true
+            if (action.last_page) {
+                result = !(action.last_page > (action.page - 1))
+            }
+            return {
+                ...state,
+                [action.id]: result
+            }
+            break
+        default:
+            return state
+        // }
+    }
+}
 const page = (state = {}, action) => {
 
     switch (action.type) {
@@ -104,18 +124,34 @@ const edit_instance = (state = {}, action) => {
     }
 }
 
+const summaries = (state = {}, action) => {
+    switch (action.type) {
+        case actions.SUMMARIES:
+            return {
+                ...state,
+                [action.id]: action.res
+            }
+            break
+        default:
+            return state
+    }
+}
+
 
 const data = combineReducers({
     ids,
     by_id,
     page,
+    last_page,
     edit_instance,
-    add_instance
+    add_instance,
+    summaries,
 })
 
 
-export default data
-
+export const get_ended_page = (state, id) => {
+    return state.last_page[id] || 0
+}
 
 export const get_start = (state, id) => {
     return state.page[id] || 0
@@ -135,3 +171,10 @@ export const get_ids_and_by_id = (state, id) => {
         by_id: state.by_id[id] || {}
     }
 }
+
+
+export const get_summaries = (state, id) => {
+    return state.summaries[id] || {}
+}
+
+export default data

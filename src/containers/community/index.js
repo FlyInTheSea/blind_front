@@ -17,6 +17,10 @@ const addition_operation = (item) => {
             name: "批量上传房屋信息",
             url: `/house_batch_upload/community/${item.id}`
         },
+        {
+            name: "认购书模板",
+            url: `/community/${item.id}/contract_template/add`
+        },
     ]
 
 }

@@ -94,33 +94,9 @@ const Sidebar = ({
                             url: "/channel/items",
                         }
                     ]
-                }
-            ],
-        },
-        {
-            name: "合同与文件",
-            items: [
-                {
-                    name: "合同列表",
-                    url: "/contract/items",
                 },
-                {
-
-                    name: "文件",
-                    items: [
-                        {
-                            name: "文件添加",
-                            url: "/upload_file/add",
-                        },
-                        {
-                            name: "文件列表",
-                            url: "/upload_file/items",
-                        }
-                    ]
-                }
             ],
         },
-
 
         {
             name: "系统设置",

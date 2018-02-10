@@ -12,6 +12,10 @@ import url_specify from "./saga/url_specify"
 import url_specify_raw_data from "./saga/url_specify_raw_data"
 import option from "./saga/option"
 import upload_file from "./saga/upload_file"
+import uploaded_file_url_submit from "./saga/uploaded_file_url_submit"
+import rich_text from "./saga/rich_text/quill"
+import get_data_init_by_url from "./saga/get_data_init_by_url/get"
+import summaries from "./saga/crud/summaries"
 
 export default function* rootSaga() {
 
@@ -29,6 +33,10 @@ export default function* rootSaga() {
         url_specify_raw_data(),
         option(),
         upload_file(),
+        uploaded_file_url_submit(),
+        rich_text(),
+        get_data_init_by_url(),
+        summaries(),
     ])
 }
 

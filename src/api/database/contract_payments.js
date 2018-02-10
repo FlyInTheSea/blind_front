@@ -2,6 +2,7 @@ import {domain} from "../../config/config"
 
 
 export const index = domain + "/contract/payment"
+export const summaries = domain + "/contract/:house/summaries"
 // export const add = domain + "/payment"
 // export const item = domain + "/payment"
 // export const edit = domain + "/payment"

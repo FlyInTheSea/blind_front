@@ -3,7 +3,14 @@ const post_data = (url, post_data = {}) => {
 
     Object.keys(post_data).map(
         item => {
-            form_data.append([item], post_data[item])
+            if (item === "query_params") {
+                form_data.append([item], JSON.stringify(
+                    post_data[item])
+                )
+            }
+            else {
+                form_data.append([item], post_data[item])
+            }
         }
     )
 

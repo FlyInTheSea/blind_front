@@ -18,7 +18,7 @@ class Full extends Component {
                 <div className="app-body">
                     <Sidebar {...this.props}/>
                     <main className="main">
-                        <Breadcrumb/>
+                        {/*<Breadcrumb/>*/}
                         <div className="container-fluid">
                             <Content/>
                         </div>

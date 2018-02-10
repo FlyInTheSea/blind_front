@@ -8,10 +8,10 @@ import url_specify from "./url_specify"
 import upload_file from "./upload_file"
 import option from "./option"
 import up from "./up"
-
-
-
+import get_data_init_by_url_anonymous from "./get_data_init_by_url"
 import data from "./data"
+import entity from "./entity"
+
 import * as data_get from "./data"
 import * as config_get from "./config"
 import * as skeleton_get from "./skeleton"
@@ -19,8 +19,11 @@ import * as  url_specify_get from "./url_specify"
 import * as  upload_get from "./upload_file"
 import * as  option_get from "./option"
 import * as  up_get from "./up"
+import *  as get_data_init_by_url_anonymous_get from "./get_data_init_by_url"
+import * as entity_get from "./entity"
 
 let reducer = combineReducers({
+    entity,
     data,
     instance,
     process,
@@ -29,25 +32,50 @@ let reducer = combineReducers({
     url_specify,
     upload_file,
     option,
-    up
+    up,
+    get_data_init_by_url: get_data_init_by_url_anonymous
 })
 
 
 export default reducer
 
-
-export const get_up = (state,id) => {
-    return up_get.get_up(state.reducer.up ,id) || {}
+export const get_data_init_by_url = (state, url) => {
+    return get_data_init_by_url_anonymous_get.get_data(state.reducer.get_data_init_by_url, url) || {}
 }
 
-export const get_upload = (state,id) => {
-    return upload_get.get_upload(state.reducer.upload_file,id) || ""
+export const get_entity = (state, id) => {
+    return entity_get.get_entity(state.reducer.entity, id)
+}
+
+export const get_up = (state, id) => {
+    return up_get.get_up(state.reducer.up, id) || {}
+}
+
+export const get_upload_status = (state, id) => {
+    return upload_get.get_upload_status(state.reducer.upload_file, id)
+}
+export const get_uploaded_url = (state, id) => {
+    return upload_get.get_uploaded_url(state.reducer.upload_file, id)
+}
+export const get_uploaded_file = (state, id) => {
+    return upload_get.get_uploaded_file(state.reducer.upload_file, id)
 }
 
 export const get_data_start = (state, id) => {
     return data_get.get_start(state.reducer.data, id)
 }
 
+export const get_data_ended_page = (state, id) => {
+    return data_get.get_ended_page(state.reducer.data, id)
+}
+
+export const get_last_uploaded_url = (state, id) => {
+    return upload_get.get_last_uploaded_url(state.reducer.data, id)
+}
+
+export const get_data_summaries = (state, id) => {
+    return data_get.get_summaries(state.reducer.data, id)
+}
 export const get_data_ids_and_by_id = (state, id) => {
     return data_get.get_ids_and_by_id(state.reducer.data, id) || []
 }
@@ -76,3 +104,6 @@ export const get_url_specify = (state, id) => {
 export const get_option = (state, id) => {
     return option_get.get_option(state.reducer.option, id) || {}
 }
+
+
+

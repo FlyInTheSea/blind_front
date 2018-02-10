@@ -34,9 +34,9 @@ const Edit_form = () => (
         <Route path="/role/edit/:id" component={role}/>
         <Route path="/permission/edit/:id" component={permission}/>
         <Route path="/permission_role/edit/:id" component={permission_role}/>
-<Route path="/community_seller/edit/:id" component={community_seller}/>
-<Route path="/house_owner/edit/:id" component={house_owner}/>
-<Route path="/customer/edit/:id" component={customer}/>
+        <Route path="/community_seller/edit/:id" component={community_seller}/>
+        <Route path="/house_owner/edit/:id" component={house_owner}/>
+        <Route path="/customer/edit/:id" component={customer}/>
         {/*<Route path="/template/edit/:id" component={template}/>*/}
         <Route path="/table_structure/edit/:id" component={table_structure}/>
         <Route path="/column/edit/:id" component={column}/>

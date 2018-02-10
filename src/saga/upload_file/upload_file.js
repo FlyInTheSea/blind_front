@@ -34,6 +34,8 @@ export function* saga(action) {
     // let add_info = prompt.add_info()
     let {file, id} = action
 
+    yield put(actions_creator.upload_file_start(id))
+
     let res = yield call(request_data, file)
 
     if (res.error) {
@@ -41,8 +43,19 @@ export function* saga(action) {
     } else {
         // prompt.add_success()
         yield put(
-            actions_creator.upload_file(id, res)
+            actions_creator.upload_file_success(id, file, res)
         )
+        yield put(
+            actions_creator.upload_file_success(id, file, res)
+        )
+        put({
+            type: actions.ADD,
+            res: {
+                "url": res
+            }, //不使用res  res 中包含返回的ｉｄ等唯一字段
+            id,
+        })
+
     }
 }
 

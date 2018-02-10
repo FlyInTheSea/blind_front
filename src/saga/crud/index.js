@@ -10,52 +10,61 @@ const item = new schema.Entity("item")
 const items = [item]
 
 const request_data = (data, id, url) => {
+    try {
+        if (!url) {
+            url = api_urls.get(id, "index");
+        }
 
-    if (!url) {
-        url = api_urls.get(id, "index");
+        return get(
+            url, data
+        )
+            .then(
+                (res) => {
+                    if (res.ok) {
+                        return res.json()
+                    }
+                },
+                error => {
+                    return error.message
+                }
+            )
+            .then(
+                res => {
+                    return res.data
+                }
+            )
+    } catch (e) {
+        console.log(e.message)
+        return {error: "saga with wrong "}
     }
 
-    return get(
-        url, data
-    )
-        .then(
-            (res) => {
-                if (res.ok) {
-                    return res.json()
-                }
-            },
-            error => {
-                return error.message
-            }
-        )
-        .then(
-            res => {
-                return res.data
-            }
-        )
 }
 
 //logic
 export function* saga(action) {
-    let wait_hint = prompt.index_info()
-    const {page, id, url} = action
 
+    let wait_hint = prompt.index_info()
+
+    const {page, id, url, query_params = {},refresh = false} = action
 
     let res = yield call(request_data, {
-        page
+        page,
+        query_params
     }, id, url)
     prompt.dismiss(wait_hint)
     if (res.error) {
         prompt.index_error(res.error.message)
     } else {
-        let {current_page} = res
+        let {current_page,last_page} = res
         res = res.data
         res = normalize(res, items)
         yield put({
             type: actions.INDEX,
             res,
             id,
-            page: current_page + 1
+            page: current_page + 1,
+            refresh,
+            last_page
         })
     }
 }

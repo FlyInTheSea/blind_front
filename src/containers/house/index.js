@@ -34,7 +34,6 @@ const addition_operation = (item) => {
                     name: "待签约",
                     url: `/contract/${item.id}`
                 },
-                print_link
             ]
             break
         case 4:
@@ -43,7 +42,6 @@ const addition_operation = (item) => {
                     name: "回款中",
                     url: `/house/${item.id}/payment`
                 },
-                print_link
             ]
 
             break
@@ -56,7 +54,6 @@ const addition_operation = (item) => {
                         color: "grey"
                     }
                 },
-                print_link
             ]
             break
         default:
@@ -65,6 +62,7 @@ const addition_operation = (item) => {
     }
 
 }
+
 const Index = get_index(id, addition_operation)
 
 export default Index

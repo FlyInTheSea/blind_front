@@ -28,12 +28,14 @@ import contract_payment from "../../../../containers/fund/contract_payment_list"
 const Table_switch = () => {
     return (
         <div>
+            <Route path="/customer_owner/:name(\d+)" component={customer_owner}/>
+            <Route path="/customer_owner/items" component={customer_owner}/>
+
             <Route path="/upload_file/items" component={upload_file}/>
             <Route path="/user/items" component={user}/>
             <Route path="/customer_info/items" component={customer_info}/>
             <Route path="/customer_level/items" component={customer_level}/>
             <Route path="/contract/items" component={contract}/>
-            <Route path="/customer_owner/items" component={customer_owner}/>
             <Route path="/commission/items" component={commission}/>
             <Route path="/role/items" component={role}/>
             <Route path="/permission/items" component={permission}/>

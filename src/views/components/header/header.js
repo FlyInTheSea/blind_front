@@ -46,38 +46,40 @@ class Header extends Component {
             <header className="app-header navbar">
                 <button className="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button"
                         onClick={this.mobileSidebarToggle}>&#9776;</button>
-                <a className="navbar-brand" href="#"></a>
-                <ul className="nav navbar-nav d-md-down-none">
-                    <li className="nav-item">
-                        <button className="nav-link navbar-toggler sidebar-toggler" type="button"
-                                onClick={this.sidebarToggle}>&#9776;</button>
-                    </li>
-                    <li className="nav-item px-3">
-                        <a className="nav-link" href="/statistic">统计</a>
-                    </li>
-                    <li className="nav-item px-3">
-                    </li>
-                    <li className="nav-item px-3">
-                        <a className="nav-link" href="#">Settings</a>
-                    </li>
-                </ul>
+                <a className="navbar-brand"  style={{backgroundImage:"url(../img/slogan.png)",backgroundSize:"160px auto" ,width:'182px'}} href="#"></a>
+                {/*<ul className="nav navbar-nav d-md-down-none">*/}
+                    {/*<li className="nav-item">*/}
+                        {/*<button className="nav-link navbar-toggler sidebar-toggler" type="button"*/}
+                                {/*onClick={this.sidebarToggle}>&#9776;</button>*/}
+                    {/*</li>*/}
+                    {/*<li className="nav-item px-3">*/}
+                        {/*<a className="nav-link" href="/statistic">统计</a>*/}
+                    {/*</li>*/}
+                    {/*<li className="nav-item px-3">*/}
+                    {/*</li>*/}
+                    {/*<li className="nav-item px-3">*/}
+                        {/*<a className="nav-link" href="#">Settings</a>*/}
+                    {/*</li>*/}
+                {/*</ul>*/}
                 <ul className="nav navbar-nav ml-auto">
-                    <li className="nav-item d-md-down-none">
-                        <a className="nav-link" href="#"><i className="icon-bell"></i><span
-                            className="badge badge-pill badge-danger">5</span></a>
-                    </li>
-                    <li className="nav-item d-md-down-none">
-                        <a className="nav-link" href="#"><i className="icon-list"></i></a>
-                    </li>
-                    <li className="nav-item d-md-down-none">
-                        <a className="nav-link" href="#"><i className="icon-location-pin"></i></a>
-                    </li>
+                    {/*<li className="nav-item d-md-down-none">*/}
+                        {/*<a className="nav-link" href="#"><i className="icon-bell"></i><span*/}
+                            {/*className="badge badge-pill badge-danger">5</span></a>*/}
+                    {/*</li>*/}
+                    {/*<li className="nav-item d-md-down-none">*/}
+                        {/*<a className="nav-link" href="#"><i className="icon-list"></i></a>*/}
+                    {/*</li>*/}
+                    {/*<li className="nav-item d-md-down-none">*/}
+                        {/*<a className="nav-link" href="#"><i className="icon-location-pin"></i></a>*/}
+                    {/*</li>*/}
                     <li className="nav-item">
                         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                             <button onClick={this.toggle} className="nav-link dropdown-toggle" data-toggle="dropdown"
                                     type="button" aria-haspopup="true" aria-expanded={this.state.dropdownOpen}>
                                 <img src={avatars} className="img-avatar" alt="admin@bootstrapmaster.com"/>
-                                <span className="d-md-down-none">admin</span>
+                                <span className="d-md-down-none">
+                                    {/*admin*/}
+                                </span>
                             </button>
 
                             <DropdownMenu className="dropdown-menu-right">
@@ -88,7 +90,7 @@ class Header extends Component {
                                 {/*<DropdownItem><i className="fa fa-tasks"></i> Tasks<span className="badge badge-danger">42</span></DropdownItem>*/}
                                 {/*<DropdownItem><i className="fa fa-comments"></i> Comments<span className="badge badge-warning">42</span></DropdownItem>*/}
 
-                                <DropdownItem header className="text-center"><strong>Settings</strong></DropdownItem>
+                                <DropdownItem header className="text-center"><strong>设置</strong></DropdownItem>
 
                                 {/*<DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem>*/}
                                 {/*<DropdownItem><i className="fa fa-wrench"></i> Settings</DropdownItem>*/}
@@ -110,11 +112,15 @@ class Header extends Component {
                             </DropdownMenu>
                         </Dropdown>
                     </li>
-                    <li className="nav-item d-md-down-none">
-                        <button className="nav-link navbar-toggler aside-menu-toggler" type="button"
-                                onClick={this.asideToggle}>&#9776;</button>
-                    </li>
+                    {/*<li className="nav-item d-md-down-none">*/}
+                        {/*<button className="nav-link navbar-toggler aside-menu-toggler" type="button"*/}
+                                {/*onClick={this.asideToggle}>&#9776;</button>*/}
+                    {/*</li>*/}
                 </ul>
+                <a className="navbar-brand"  style={{
+                    // backgroundSize:"140px auto" ,
+                    // width:'182px'
+                }} href="#"></a>
             </header>
         )
     }

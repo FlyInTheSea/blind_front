@@ -1,3 +1,8 @@
+const logout = () => {
+    window.localStorage.removeItem("token")
+    window.location.reload();
+}
+
 const get = (url, data = {}) => {
 
     // let form_data = new FormData()
@@ -12,18 +17,33 @@ const get = (url, data = {}) => {
         'Accept': 'application/json',
         'Authorization': auth_code,
     })
-
-    // form_data.append("_method", "GET")
     let options =
         {
             method: "GET",
             mode: "cors",
             headers
-            // body: form_data,
         }
-    return fetch(
+    url = new URL(url)
+    Object.keys(data).forEach(key => {
+        if (key === "query_params") {
+            url.searchParams.append(key, JSON.stringify(data[key]))
+        }else {
+            url.searchParams.append(key, data[key])
+        }
+    })
+    let response = fetch(
         url, options
     )
+
+    response.then(
+        res => {
+            if (!res.ok && res.status === 401 && res.statusText === "Unauthorized") {
+                logout();
+            }
+        }
+    )
+
+    return response
 }
 export default get
 
@@ -73,7 +93,6 @@ const status = [
     //找
     //财务交钱
     //可以撤销
-
 
 
     // 全款 流程 结束

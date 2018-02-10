@@ -20,6 +20,7 @@ import * as  community_sellers from "./database/community_sellers"
 import * as  contracts from "./database/contract"
 import * as  contract_payments from "./database/contract_payments"
 import * as commission   from "./database/commission"
+import * as  customer_owners from "./database/customer_owners"
 // import * as templates from "./database/templates"
 
 export const db = {
@@ -36,6 +37,7 @@ export const db = {
     funds,
     config_transformations,
     customer_info,
+    customer_owners,
     roles,
     permissions,
     permission_roles,

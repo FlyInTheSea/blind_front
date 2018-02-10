@@ -74,4 +74,13 @@ export const template_urls = (template, replace = []) => {
 export const upload_file_excel = domain + "/file/excel"
 
 
+export const room_status_load_from_excel = domain + "/room_status/load_from_excel"
+
+export const rich_text = domain + "/contract_template"
+
+export const  contract_template_edit = domain + "/contract_template"
+
+export const  print_img_fund = domain + "/print_img/fund"
+
+
 

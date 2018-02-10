@@ -34,8 +34,8 @@ const Load_more_switch = () => {
             <Route path="/permission/items" component={permission}/>
             <Route path="/permission_role/items" component={permission_role}/>
             <Route path="/community_role/items" component={community_role}/>
-<Route path="/community_seller/items" component={community_seller}/>
-<Route path="/house_owner/items" component={house_owner}/>
+            <Route path="/community_seller/items" component={community_seller}/>
+            <Route path="/house_owner/items" component={house_owner}/>
             {/*<Route path="/template/items" component={template}/>*/}
             <Route path="/table_structure/items" component={table_structure}/>
             <Route path="/column/items" component={column}/>

@@ -6,7 +6,6 @@ import {FlatButton, RaisedButton} from "material-ui"
 import uuid from "uuid"
 
 
-
 const Row = ({
                  item,
                  table_structures,
@@ -15,9 +14,9 @@ const Row = ({
                  addition_operation
              }) => {
 
-   if(!Array.isArray(addition_operation)){
-       addition_operation = addition_operation(item)
-   }
+    if (!Array.isArray(addition_operation)) {
+        addition_operation = addition_operation(item)
+    }
 
 
     return (
@@ -34,10 +33,17 @@ const Row = ({
                 )
             }
 
-            <td key={uuid.v4()} >
+            <td key={uuid.v4()}>
                 {
                     addition_operation.map(
-                        ({url, name, style}) => {
+                        ({url, name, style, user_handle}) => {
+                            if (!url) {
+                                return (
+                                    <FlatButton key={uuid.v4()} style={style} {...user_handle} >
+                                        {name}
+                                    </FlatButton>
+                                )
+                            }
                             return (
                                 <FlatButton key={url}>
                                     <Link to={url} style={style}>
@@ -49,22 +55,12 @@ const Row = ({
                     )
                 }
                 {"  "}
-                <FlatButton primary={true} key={uuid.v4()} >
+                <FlatButton primary={true} key={uuid.v4()}>
                     <Link to={edit_url(item)}>
                         修改
                     </Link>
                 </FlatButton>
                 {"  "}
-                <FlatButton secondary={true}
-                            key={uuid.v4()}
-                            onClick={
-                                () => {
-                                    del_item(item)
-                                }
-                            }
-                >
-                    删除
-                </FlatButton>
             </td>
         </tr>
     )

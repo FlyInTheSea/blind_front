@@ -10,6 +10,14 @@ const addition_operation = (item) => {
         {
             name: "佣金",
             url: `/commission/user/${item.id}`
+        },
+        {
+            name: "用户分配",
+            url: `/customer_owner/${item.id}`
+        },
+        {
+            name: "角色分配",
+            url: `//${item.id}`
         }
     ]
 }

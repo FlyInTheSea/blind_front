@@ -9,8 +9,8 @@ import id from "./id"
 
 const Add =
     connect(
-        state => ({
-            }
+        state => (
+            {}
         ),
         dispatch => {
 
